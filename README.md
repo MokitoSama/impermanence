@@ -1,5 +1,7 @@
 # Startpage
+It's pretty late and I need to sleep haha. 
 
+Right now it's exactly the same as what it was from the prev. but I will customize it in a couple of days. 
 [Live Preview]((https://mokitosama.github.io/impermanence/))
 
 Feel free to fork and make your own changes!
