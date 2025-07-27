@@ -20,16 +20,17 @@
         </div>
 
         <div class="right-container">
-            <!-- Three link buttons added here -->
-            <a href="https://claude.ai/new" class="top-right-link-button button-1" target="_blank"></a>
-            <a href="https://gemini.google.com/app" class="top-right-link-button button-2" target="_blank"></a>
-            <a href="https://deepseek.com/en" class="top-right-link-button button-3" target="_blank"></a>
+            <!-- Four link buttons added here -->
+            <a href="https://chatgpt.com" class="top-right-link-button button-1" target="_blank"></a>
+            <a href="https://claude.ai/new" class="top-right-link-button button-2" target="_blank"></a>
+            <a href="https://gemini.google.com/app" class="top-right-link-button button-3" target="_blank"></a>
+            <a href="https://deepseek.com/en" class="top-right-link-button button-4" target="_blank"></a>
             <div class="datetime-container">
                 <div id="current-datetime"></div>
             </div>
             <div class="head">
                 <!-- Modified for search bar functionality -->
-                <span id="prompt-prefix">> search -s&nbsp </span><span id="search-text"></span><span id="blinker" class="blinking">_</span>
+                <span id="prompt-prefix">> search -s \&nbsp </span><span id="search-text"></span><span id="blinker" class="blinking">_</span>
             </div>
 
             <div class="bookmarks" id="bookmarks-container">
@@ -54,31 +55,34 @@
     <script>
         // Function to update the clock and date
        function updateDateTime() {
-         const now = new Date();
+         const staticMessages = [
+        "^_^ Hello! What's up?",
+        "(>^.^)> <3",
+        "Welcome back! :3",
+           "Ready to browse? >.<",
+        "~/startpage UwU"
+         ];
 
-        // Format time for 24-hour clock
-         const timezoneOffsetHours = -4; // Change this to your actual offset
-    
-        // Get UTC time and apply your offset
-         const utcHours = now.getUTCHours();
-         let localHours = utcHours + timezoneOffsetHours;
-         //const localHours = String(now.getHours()).padStart(2, '0');  // 00-23
-         const minutes = String(now.getMinutes()).padStart(2, '0');
-         const seconds = String(now.getSeconds()).padStart(2, '0');
-         const timeString = `${localHours}:${minutes}:${seconds}`;  // 24-hour format
+         const container = document.getElementById('current-datetime');
+         let currentIndex = parseInt(container.dataset.msgIndex) || 0; 
 
-        // Format date
-         const options = { year: 'numeric', month: 'long', day: 'numeric' };
-         const dateString = now.toLocaleDateString('en-US', options);
 
-        // Update the element on your page
-         document.getElementById('current-datetime').textContent = `${dateString} ${timeString}`;
-    }
+         // Update to next message
+         currentIndex = (currentIndex + 1) % staticMessages.length;
+         container.textContent = staticMessages[currentIndex];
+         container.dataset.msgIndex = currentIndex;
+}
+
+// Initial call to display first message immediately
+updateDateTime();
+
+// Rotate messages every 5 seconds (adjust timing as needed)
+setInterval(updateDateTime, 5000);
         // Update the clock every second
-        setInterval(updateDateTime, 1000);
+        // setInterval(updateDateTime, 1000);
 
         // Initial call to display the time immediately
-        updateDateTime();
+        // updateDateTime();
 
         // Search bar functionality
         const searchTextElement = document.getElementById('search-text');

@@ -196,7 +196,7 @@ a:hover {
     width: 10px; /* Smaller size */
     height: 10px; /* Smaller size */
     border-radius: 50%; /* Makes it round */
-    background-color: #a89984; /* Gruvbox grey background 20% dimmer */
+    background-color: #00ffff; /* Gruvbox grey background 20% dimmer */
     border: none;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -206,7 +206,7 @@ a:hover {
 }
 
 .top-right-link-button:hover {
-    background-color: #928374; /* Slightly darker on hover for the new color */
+    background-color: #FF00FF; /* Slightly darker on hover for the new color */
 }
 
 /* Specific positioning for each button */
@@ -220,6 +220,10 @@ a:hover {
 
 .button-3 {
     right: 55px; /* 35px (button 2) + 10px (button width) + 10px (spacing) */
+}
+
+.button-4 {
+    right: 75px; /* 35px (button 3) + 10px (button width) + 10px (spacing) */
 }
 
 /* New style for the top-left settings button */
