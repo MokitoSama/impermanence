@@ -1,16 +1,16 @@
 :root {
-    --color-bg: #282828; /* Gruvbox dark hard background */
-    --color-fg: #ebdbb2; /* Gruvbox foreground */
-    --color-link: #83a598; /* Gruvbox aqua */
-    --color-link-visited: #d3869b; /* Gruvbox purple */
-    --color-link-hover: #fe8019; /* Gruvbox orange */
+    --color-bg: #040400; /* Gruvbox dark hard background */
+    --color-fg: #0EE0FB;/* Gruvbox foreground */
+    --color-link: #03A0B5; /* Gruvbox aqua */
+    --color-link-visited: #1a6e74; /* Gruvbox purple */
+    --color-link-hover: #d572ad; /* Gruvbox orange */
     --color-red: #cc241d; /* Gruvbox red for starred links */
 }
 
 html, body {
   background: var(--color-bg);
   color: var(--color-fg);
-  font-family: "Fira Code", monospace; /* Added monospace for better code-like feel */
+  font-family: "JetBrains Mono", monospace; /* Added monospace for better code-like feel */
   height: 100%;
   width: 100%;
   margin: 0;
@@ -76,7 +76,7 @@ html::-webkit-scrollbar {
   max-height: 100%;
   height: auto;
   width: auto;
-  margin-top: 80px; /* Adjusted to pull the image slightly up from 100px */
+  margin-top: 170px; /* Adjusted to pull the image slightly up from 100px */
 }
 
 .head {

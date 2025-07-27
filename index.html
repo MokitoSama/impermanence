@@ -6,7 +6,7 @@
     <title>~/startpage</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="x-icon" href="favicon.ico">
+    <link rel="icon" type="x-icon" href="icons/home.ico">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
             <!-- Settings button added here -->
             <button id="settings-button" class="top-left-link-button"></button>
             <div class="gif">
-                <img src="cat.gif" />
+                <img src="gifs/chibi.gif" />
             </div>
         </div>
 
@@ -23,13 +23,13 @@
             <!-- Three link buttons added here -->
             <a href="https://claude.ai/new" class="top-right-link-button button-1" target="_blank"></a>
             <a href="https://gemini.google.com/app" class="top-right-link-button button-2" target="_blank"></a>
-            <a href="https://chatgpt.com" class="top-right-link-button button-3" target="_blank"></a>
+            <a href="https://deepseek.com/en" class="top-right-link-button button-3" target="_blank"></a>
             <div class="datetime-container">
                 <div id="current-datetime"></div>
             </div>
             <div class="head">
                 <!-- Modified for search bar functionality -->
-                <span id="prompt-prefix">> cd ~/</span><span id="search-text"></span><span id="blinker" class="blinking">_</span>
+                <span id="prompt-prefix">> search -s&nbsp </span><span id="search-text"></span><span id="blinker" class="blinking">_</span>
             </div>
 
             <div class="bookmarks" id="bookmarks-container">
@@ -53,25 +53,27 @@
 
     <script>
         // Function to update the clock and date
-        function updateDateTime() {
-            const now = new Date();
+       function updateDateTime() {
+         const now = new Date();
 
-            // Format time for 12-hour clock with AM/PM
-            let hours = now.getHours();
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const ampm = hours >= 12 ? 'PM' : 'AM';
-            hours = hours % 12;
-            hours = hours ? hours : 12; // The hour '0' should be '12'
-            const timeString = `${String(hours).padStart(2, '0')}:${minutes}:${seconds} ${ampm}`;
+        // Format time for 24-hour clock
+         const timezoneOffsetHours = -4; // Change this to your actual offset
+    
+        // Get UTC time and apply your offset
+         const utcHours = now.getUTCHours();
+         let localHours = utcHours + timezoneOffsetHours;
+         //const localHours = String(now.getHours()).padStart(2, '0');  // 00-23
+         const minutes = String(now.getMinutes()).padStart(2, '0');
+         const seconds = String(now.getSeconds()).padStart(2, '0');
+         const timeString = `${localHours}:${minutes}:${seconds}`;  // 24-hour format
 
-            // Format date
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            const dateString = now.toLocaleDateString('en-US', options);
+        // Format date
+         const options = { year: 'numeric', month: 'long', day: 'numeric' };
+         const dateString = now.toLocaleDateString('en-US', options);
 
-            document.getElementById('current-datetime').textContent = `${dateString} ${timeString}`;
-        }
-
+        // Update the element on your page
+         document.getElementById('current-datetime').textContent = `${dateString} ${timeString}`;
+    }
         // Update the clock every second
         setInterval(updateDateTime, 1000);
 
@@ -125,7 +127,7 @@
             {
                 title: 'learn',
                 links: [
-                    { text: 'tracker', url: 'https://najmossalahin.github.io/Task_Tracker/', starred: false },
+                    { text: 'udemy', url: 'https://udemy.com', starred: false },
                     { text: 'statistics', url: 'https://www.coursera.org/learn/stanford-statistics/home/', starred: false },
                     { text: 'python', url: 'https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU/', starred: false },
                     { text: 'codewars', url: 'https://www.codewars.com/kata/search/python?q=&r%5B%5D=-8&beta=false&order_by=sort_date%20desc/', starred: false },
