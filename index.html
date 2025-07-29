@@ -21,10 +21,10 @@
 
         <div class="right-container">
             <!-- Four link buttons added here -->
-            <a href="https://chatgpt.com" class="top-right-link-button button-1" target="_blank"></a>
-            <a href="https://claude.ai/new" class="top-right-link-button button-2" target="_blank"></a>
-            <a href="https://gemini.google.com/app" class="top-right-link-button button-3" target="_blank"></a>
-            <a href="https://chat.deepseek.com/en" class="top-right-link-button button-4" target="_blank"></a>
+            <a href="https://chatgpt.com" class="top-right-link-button button-1" target="_self"></a>
+            <a href="https://claude.ai/new" class="top-right-link-button button-2" target="_self"></a>
+            <a href="https://gemini.google.com/app" class="top-right-link-button button-3" target="_self"></a>
+            <a href="https://chat.deepseek.com/en" class="top-right-link-button button-4" target="_self"></a>
             <div class="datetime-container">
                 <div id="current-datetime"></div>
             </div>
@@ -114,9 +114,9 @@ setInterval(updateDateTime, 5000);
                             if (!urlToOpen.startsWith('http://') && !urlToOpen.startsWith('https://')) {
                                 urlToOpen = `http://${urlToOpen}`;
                             }
-                            window.open(urlToOpen, '_blank');
+                            window.open(urlToOpen, '_self');
                         } else {
-                            window.open(`https://www.duckduckgo.com/search?q=${encodeURIComponent(trimmedQuery)}`, '_blank');
+                            window.open(`https://www.duckduckgo.com/search?q=${encodeURIComponent(trimmedQuery)}`, '_self');
                         }
                     }
                     searchQuery = '';
@@ -136,7 +136,7 @@ setInterval(updateDateTime, 5000);
                     { text: 'udemy', url: 'https://udemy.com', starred: false },
                     { text: 'W3schools', url: 'https://www.w3schools.com/', starred: false },
                     { text: 'codewars', url: 'https://www.codewars.com/kata/search/python?q=&r%5B%5D=-8&beta=false&order_by=sort_date%20desc/', starred: false },
-                    { text: 'beecrowd', url: 'https://judge.beecrowd.com/', starred: false },
+                    { text: 'suttacentral', url: 'https://suttacentral.net/', starred: false },
                     { text: 'renshuu', url: 'https://www.renshuu.org/me', starred: false },
                     { text: 'language', url: 'https://forvo.com/', starred: false },
                     { text: 'kana lrn', url: 'https://najmossalahin.github.io/Ai_Kana_Learning_Tool/', starred: false },
@@ -267,7 +267,7 @@ setInterval(updateDateTime, 5000);
                     const a = document.createElement('a');
                     a.href = link.url;
                     a.textContent = link.text;
-                    a.target = "_blank";
+                    a.target = "_self";
                     if (link.starred) {
                         a.classList.add('starred-link');
                     }
